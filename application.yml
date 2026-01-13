@@ -6,9 +6,9 @@ lavalink:
   plugins:
     - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5" # バージョンを最新に
   server:
-    password: "youshallnotpass"
+    password: "hiroki0407"
     sources:
-      youtube: false # プラグインを使うのでfalseにする
+      youtube: false
       bandcamp: true
       soundcloud: true
       twitch: true
