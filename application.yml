@@ -3,11 +3,8 @@ server:
   address: 0.0.0.0
 
 lavalink:
-  plugins:
-    # Spotifyの楽曲情報を読み込むためのプラグイン（再生はSoundCloudで行う）
-    - dependency: "com.github.topi804k:spotify-plugin:4.0.2"
   server:
-    password: "youshallnotpass"
+    password: "hiroki0407"
     sources:
       youtube: false
       bandcamp: true
@@ -17,15 +14,11 @@ lavalink:
       http: true
       local: false
 
-plugins:
-  spotify:
-    clientId: "YOUR_SPOTIFY_CLIENT_ID"     # Spotify Developerで取得（後述）
-    clientSecret: "YOUR_SPOTIFY_SECRET"
-    countryCode: "JP"
-    playlistPageLimit: 6
-    albumPageLimit: 6
-
 logging:
   level:
     root: INFO
     lavalink: INFO
+
+metrics:
+  prometheus:
+    enabled: false
