@@ -3,7 +3,7 @@ server:
 
 lavalink:
   server:
-    password: ${LAVALINK_SERVER_PASSWORD}
+    password: hiroki0407
 
 sources:
   youtube: true
