@@ -4,7 +4,7 @@ server:
 
 lavalink:
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5" # バージョンを最新に
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5"
   server:
     password: "hiroki0407"
     sources:
@@ -16,23 +16,20 @@ lavalink:
       http: true
       local: false
 
-# YouTubeプラグインの詳細設定
 plugins:
   youtube:
     enabled: true
     allowSearch: true
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
-    # 検索が失敗する場合、以下のクライアント設定が重要です
+    # 失敗しやすいクライアントを避け、安定しているものを優先
     clients:
-      - MUSIC
-      - ANDROID_VR
       - WEB
+      - MUSIC
       - TVHTML5EMBEDDED
-
-metrics:
-  prometheus:
-    enabled: false
+    # ★重要：YouTubeの制限を回避するためにOAuthを有効化
+    oauth:
+      enabled: true
 
 logging:
   level:
