@@ -2,7 +2,6 @@ FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# Lavalink.jar を直接ダウンロード（サイズ制限回避）
 RUN apt-get update && apt-get install -y curl \
  && curl -L https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar -o Lavalink.jar \
  && apt-get remove -y curl \
@@ -11,6 +10,7 @@ RUN apt-get update && apt-get install -y curl \
 
 COPY application.yml application.yml
 
-EXPOSE 2333
+# ★ 固定ポートはEXPOSEしない
+# EXPOSE 2333 ← 削除
 
 CMD ["java", "-jar", "Lavalink.jar"]
