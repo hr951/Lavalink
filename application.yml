@@ -4,9 +4,10 @@ server:
 
 lavalink:
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.5"
+    # Spotifyの楽曲情報を読み込むためのプラグイン（再生はSoundCloudで行う）
+    - dependency: "com.github.topi804k:spotify-plugin:4.0.2"
   server:
-    password: "hiroki0407"
+    password: "youshallnotpass"
     sources:
       youtube: false
       bandcamp: true
@@ -17,19 +18,12 @@ lavalink:
       local: false
 
 plugins:
-  youtube:
-    enabled: true
-    allowSearch: true
-    allowDirectVideoIds: true
-    allowDirectPlaylistIds: true
-    # 失敗しやすいクライアントを避け、安定しているものを優先
-    clients:
-      - WEB
-      - MUSIC
-      - TVHTML5EMBEDDED
-    # ★重要：YouTubeの制限を回避するためにOAuthを有効化
-    oauth:
-      enabled: true
+  spotify:
+    clientId: "YOUR_SPOTIFY_CLIENT_ID"     # Spotify Developerで取得（後述）
+    clientSecret: "YOUR_SPOTIFY_SECRET"
+    countryCode: "JP"
+    playlistPageLimit: 6
+    albumPageLimit: 6
 
 logging:
   level:
