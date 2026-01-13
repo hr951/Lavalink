@@ -1,9 +1,9 @@
 server:
-  port: 2333
+  port: ${PORT:2333}
 
 lavalink:
   server:
-    password: hiroki0407
+    password: ${LAVALINK_SERVER_PASSWORD}
 
 sources:
   youtube: true
