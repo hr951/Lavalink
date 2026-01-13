@@ -1,16 +1,7 @@
-FROM eclipse-temurin:17-jre
+FROM fredboat/lavalink:4
 
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y curl \
- && curl -L https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar -o Lavalink.jar \
- && apt-get remove -y curl \
- && apt-get autoremove -y \
- && rm -rf /var/lib/apt/lists/*
-
+# 設定ファイルをコピー
 COPY application.yml application.yml
 
-# ★ 固定ポートはEXPOSEしない
-# EXPOSE 2333 ← 削除
-
-CMD ["java", "-jar", "Lavalink.jar"]
+# Renderは動的にポートを割り当てるため、環境変数PORTを使用するように設定
+ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "Lavalink.jar"]
