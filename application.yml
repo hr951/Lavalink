@@ -4,7 +4,7 @@ server:
 
 lavalink:
   server:
-    password: "pass"
+    password: "hiroki0407"
     sources:
       youtube: false
       bandcamp: true
